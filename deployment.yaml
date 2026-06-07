@@ -1,19 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: demo-app
+  name: python-app
 spec:
   replicas: 2
+
   selector:
     matchLabels:
-      app: demo
+      app: python-app
+
   template:
     metadata:
       labels:
-        app: demo
+        app: python-app
+
     spec:
       containers:
-      - name: demo
-        image: nginx:latest
+      - name: python-app
+
+        image: madhu809/python-app:1
+
         ports:
-        - containerPort: 80
+        - containerPort: 5000
